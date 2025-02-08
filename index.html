@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Request Example</title>
+    <script>
+        function sendRequest() {
+            let userInput = document.getElementById("inputField").value;
+            
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://crow-measured-crayfish.ngrok-free.app/check-in/", true);
+            xhr.setRequestHeader("Content-Type", "text/plain"); 
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert("Your group: " + xhr.responseText);
+                }
+            };
+            
+            xhr.send(userInput);
+        }
+    </script>
+</head>
+<body>
+    <h2>Check in</h2>
+    <input type="text" id="inputField" placeholder="MSSV">
+    <button onclick="sendRequest()">Check in!</button>
+</body>
+</html>
