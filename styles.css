@@ -46,13 +46,13 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.5rem;
-    color: #FF7F50;
+    color: #ffffff;
 }
 
 input[type="text"] {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 20px 0;
     border-radius: 4px;
     border: 1px solid #ccc;
     font-size: 1rem;
@@ -61,6 +61,7 @@ input[type="text"] {
 button {
     width: 100%;
     padding: 10px;
+    margin-top: 10px;
     background-color: #007BFF;
     color: white;
     border: none;
@@ -79,11 +80,11 @@ button:hover:not(:disabled) {
 }
 
 .checkbox-container {
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 #checkboxLabel {
-    color: #FF7F50;  /* Text color */
+    color: #ffffff;  /* Text color */
     align-items: center;  /* Vertically align checkbox and text */
     margin-top: 15px;
     cursor: pointer;
@@ -94,27 +95,5 @@ button:hover:not(:disabled) {
 margin-top: 20px;
 text-align: center;
 font-size: 1rem;
-color: #28a745;
-}
-
-/* Media Queries for responsiveness */
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
-        width: 90%;
-    }
-
-    h2 {
-        font-size: 1.25rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 12px;
-    }
-
-    input[type="text"] {
-        font-size: 0.9rem;
-        padding: 12px;
-    }
+color: #ffffff;
 }

@@ -12,8 +12,12 @@
             let button = document.getElementById("checkInButton");
             let userInput = userInput_box.value;
             let dongTam = dongTam_box.checked;
-
+            // https://crow-measured-crayfish.ngrok-free.app
             // Ask for confirmation before proceeding
+            if(!userInput) {
+                alert("MSSV không thể trống!");
+                return;
+            }
             let confirmed = confirm(`Xác nhận check in\nMSSV : ${userInput}.\n${dongTam ? "Có tham gia chuyến đi đến Đồng Tâm" : ""}`);
 
             if (!confirmed) {
@@ -30,6 +34,12 @@
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
+                    // duplicate
+                    if(xhr.responseText === "-1") {
+                        alert("MSSV trùng! Xin hãy liên hệ với ban tổ chức!");
+                        button.innerHTML = "MSSV trùng!";
+                        return;
+                    }
                     alert("Check in thành công! Số nhóm của bạn: " + xhr.responseText);
                     button.innerHTML = "Check in thành công!";
                     document.getElementById("afterCheckin").innerHTML = `Bạn thuộc nhóm ${xhr.responseText}`;
@@ -46,7 +56,6 @@
 
         function showCheckbox() {
             let xhr = new XMLHttpRequest();
-            // POST because the endpoint doesnt like GET...
             xhr.open("POST", "https://crow-measured-crayfish.ngrok-free.app/dong-tam/", true);
             let checkboxContainer = document.getElementById("checkboxContainer");
             xhr.onreadystatechange = function () {
@@ -60,17 +69,16 @@
     </script>
 </head>
 <body>
-    <h2>FieldTrip - Bước chân gắn kết!</h2>
-    <h2>Check in!</h2>
-    <input type="text" id="inputField" placeholder="MSSV">
-    <button id="checkInButton" onclick="sendRequest()">Checkin!</button>
-
+    <img src="Logo_Yellow.png"/>
+    <h2>CHECK IN!</h2>
+    <input type="text" id="inputField" placeholder="MSSV">    
     <!-- Checkbox will be shown here after API check -->
     <div id="checkboxContainer" style="display: none;">
         <label id="checkboxLabel">
             <input type="checkbox" id="yesNoCheckbox" checked="false"> Bạn có muốn tham gia vào chuyến đi tới Trung tâm Bảo trợ Xã hội Đồng Tâm không?
         </label>
     </div>
+    <button id="checkInButton" onclick="sendRequest()">Checkin!</button>
     <div id="afterCheckin">
     </div>
     <script>
