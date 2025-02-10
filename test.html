@@ -26,7 +26,7 @@
             dongTam_box.disabled = true;
 
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://crow-measured-crayfish.ngrok-free.app/check-in/", true);
+            xhr.open("POST", "http://100.113.25.110:8000/check-in/", true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
@@ -46,7 +46,7 @@
 
         function showCheckbox() {
             let xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://crow-measured-crayfish.ngrok-free.app/dong-tam/", true);
+            xhr.open("GET", "http://100.113.25.110:8000/dong-tam/", true);
             let checkboxContainer = document.getElementById("checkboxContainer");
             xhr.onreadystatechange = function () {
                 // only display the checkbox if there is enough place
