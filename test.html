@@ -69,17 +69,21 @@
     </script>
 </head>
 <body>
-    <img src="Logo_Yellow.png"/>
-    <h2>CHECK IN!</h2>
-    <input type="text" id="inputField" placeholder="MSSV">    
-    <!-- Checkbox will be shown here after API check -->
-    <div id="checkboxContainer" style="display: none;">
-        <label id="checkboxLabel">
-            <input type="checkbox" id="yesNoCheckbox" checked="false"> Bạn có muốn tham gia vào chuyến đi tới Trung tâm Bảo trợ Xã hội Đồng Tâm không?
-        </label>
-    </div>
-    <button id="checkInButton" onclick="sendRequest()">Checkin!</button>
-    <div id="afterCheckin">
+    <div id="overlay">
+        <div id="logoContainer">
+            <img src="Logo_Yellow.png"/>
+        </div>
+        <h2>CHECK IN!</h2>
+        <input type="text" id="inputField" placeholder="MSSV">    
+        <!-- Checkbox will be shown here after API check -->
+        <div id="checkboxContainer" style="display: none;">
+            <label id="checkboxLabel">
+                <input type="checkbox" id="yesNoCheckbox" checked="false"> Bạn có muốn tham gia vào chuyến đi tới Trung tâm Bảo trợ Xã hội Đồng Tâm không?
+            </label>
+        </div>
+        <button id="checkInButton" onclick="sendRequest()">Check in!</button>
+        <div id="afterCheckin">
+        </div>
     </div>
     <script>
         showCheckbox();
