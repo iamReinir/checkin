@@ -46,7 +46,8 @@
 
         function showCheckbox() {
             let xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://crow-measured-crayfish.ngrok-free.app/dong-tam/", true);
+            // POST because the endpoint doesnt like GET...
+            xhr.open("POST", "https://crow-measured-crayfish.ngrok-free.app/dong-tam/", true);
             let checkboxContainer = document.getElementById("checkboxContainer");
             xhr.onreadystatechange = function () {
                 // only display the checkbox if there is enough place
