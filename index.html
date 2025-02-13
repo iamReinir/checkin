@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check In</title>
+    <title>Field Trip Check In</title>
     <link rel="stylesheet" href="styles.css">
     <script>
         function sendRequest() {
@@ -38,6 +38,11 @@
                     if(xhr.responseText === "-1") {
                         alert("MSSV trùng! Xin hãy liên hệ với ban tổ chức!");
                         button.innerHTML = "MSSV trùng!";
+                        return;
+                    }
+                    if(xhr.responseText === "-2") {
+                        alert("Bạn không có trong danh sách đăng ký!\nXin hãy liên hệ với ban tổ chức!");
+                        button.innerHTML = "Không trong danh sách!";
                         return;
                     }
                     alert("Check in thành công! Số nhóm của bạn: " + xhr.responseText);
