@@ -49,6 +49,10 @@
                     button.innerHTML = "Check in thành công!";
                     document.getElementById("afterCheckin").innerHTML = `Bạn thuộc nhóm ${xhr.responseText}`;
                 }
+                if (xhr.readyState === 4 && xhr.status !== 200) {
+                    alert("Hệ thống gặp lỗi bất thường!\nXin hãy liên hệ với ban tổ chức!");
+                    return;
+                }
             };
 
             let request = {
